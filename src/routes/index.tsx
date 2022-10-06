@@ -3,7 +3,7 @@ import { Register } from '../pages/Registrer';
 
 const routeList: RouteProps[] = [
   {
-    path: '/Cadastrar',
+    path: '/register',
     element: <Register />,
   },
 ];
