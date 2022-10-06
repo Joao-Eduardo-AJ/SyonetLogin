@@ -5,10 +5,16 @@ const variantModifier = {
   primary: (theme: DefaultTheme) => css`
     background: ${theme.colors.function};
     color: ${theme.colors.gray100};
+    :hover {
+      background-color: ${theme.colors.functionLight};
+    }
   `,
   outline: (theme: DefaultTheme) => css`
     background: ${theme.colors.gray100};
     color: ${theme.colors.function};
+    :hover {
+      background-color: ${theme.colors.gray200};
+    }
   `,
 };
 
@@ -20,6 +26,8 @@ export const Button = styled.button<ButtonProps>`
     font-weight: 500;
     font-size: 1rem;
     width: 100%;
+    cursor: pointer;
+    transition: all 0.2s;
 
     ${variant && variantModifier[variant](theme)}
   `};

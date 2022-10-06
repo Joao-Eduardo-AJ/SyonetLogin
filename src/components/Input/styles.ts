@@ -39,6 +39,11 @@ export const Wrapper = styled.div<WrapperProps>`
       width: 100%;
       font-weight: 400;
       font-size: 0.875rem;
+      transition: all 0.2s;
+
+      :hover {
+        background-color: ${theme.colors.gray200};
+      }
     }
 
     ${disabled && variantModifier.disabled(theme)}
