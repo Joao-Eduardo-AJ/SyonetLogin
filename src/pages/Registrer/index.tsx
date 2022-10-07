@@ -4,7 +4,7 @@ import { Button } from '../../components/Button/Index';
 import { Input } from '../../components/Input/Index';
 import * as Styled from './styles';
 import { ErrorProps, validationRegister } from './validation/index';
-import { Modal } from '../../components/Modal';
+import { Modal } from '../../components/Modal/Index';
 
 export function Register() {
   const [email, setEmail] = useState('');

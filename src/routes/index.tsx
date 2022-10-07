@@ -1,6 +1,7 @@
 import { Routes, Route, RouteProps } from 'react-router-dom';
 import { Register } from '../pages/Registrer';
 import { Login } from '../pages/Login';
+import { User } from '../pages/UserList';
 
 const routeList: RouteProps[] = [
   {
@@ -10,6 +11,10 @@ const routeList: RouteProps[] = [
   {
     path: '/login',
     element: <Login />,
+  },
+  {
+    path: '/user',
+    element: <User />,
   },
 ];
 
