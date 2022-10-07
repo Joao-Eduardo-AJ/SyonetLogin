@@ -1,4 +1,4 @@
-import { useState, FormEvent } from 'react';
+import { useState, useEffect, FormEvent } from 'react';
 import { Button } from '../../components/Button/Index';
 import { Input } from '../../components/Input/Index';
 import { useNavigate } from 'react-router-dom';
@@ -14,11 +14,15 @@ export function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState({} as ErrorProps);
+  const [count, setCount] = useState(0);
+  const [time, setTime] = useState(30);
 
   const navigate = useNavigate();
 
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
+
+    if (count === 3) return;
 
     const body = {
       email,
@@ -39,8 +43,29 @@ export function Login() {
 
           setErrors(errorsData);
         }
+
+        setCount(prevState => prevState + 1);
       });
   }
+
+  useEffect(() => {
+    if (count === 3) {
+      setErrors({} as ErrorProps);
+    }
+  }, [count]);
+
+  useEffect(() => {
+    if (count === 3) {
+      setTimeout(() => {
+        if (time !== 0) {
+          setTime(prevState => prevState - 1);
+        } else {
+          setTime(30);
+          setCount(0);
+        }
+      }, 1000);
+    }
+  }, [count, time]);
 
   return (
     <Styled.Form onSubmit={handleSubmit}>
@@ -53,6 +78,7 @@ export function Login() {
           onChange={event => setEmail(event.target.value)}
           onFocus={() => setErrors({} as ErrorProps)}
           error={errors.email}
+          disabled={count === 3}
         />
         <Input
           label="Senha:"
@@ -61,10 +87,16 @@ export function Login() {
           onChange={event => setPassword(event.target.value)}
           onFocus={() => setErrors({} as ErrorProps)}
           error={errors.password}
+          disabled={count === 3}
         />
+        {count === 3 && (
+          <span>
+            Próxima tentativa em <strong>{time}</strong> segundos
+          </span>
+        )}
       </div>
       <div className="buttonContainer">
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" disabled={count === 3}>
           Fazer login
         </Button>
       </div>

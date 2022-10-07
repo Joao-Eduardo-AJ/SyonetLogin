@@ -13,6 +13,11 @@ export const Form = styled.form`
       display: flex;
       flex-direction: column;
       gap: ${theme.spaces[8]};
+
+      > span {
+        color: ${theme.colors.danger};
+        text-align: center;
+      }
     }
 
     .buttonContainer {

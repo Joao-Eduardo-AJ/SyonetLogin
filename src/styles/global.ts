@@ -16,5 +16,16 @@ export default createGlobalStyle`
         height: 100vh;
         background: ${theme.colors.background};
       }
+
+      button:disabled {
+        background-color: ${theme.colors.gray200};
+
+        &:hover {
+          background-color: ${theme.colors.gray200};
+          color: ${theme.colors.gray100};
+          box-shadow: none;
+          cursor: not-allowed;
+        }
+      }
     `};
 `;
