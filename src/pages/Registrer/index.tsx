@@ -4,12 +4,14 @@ import { Button } from '../../components/Button/Index';
 import { Input } from '../../components/Input/Index';
 import * as Styled from './styles';
 import { ErrorProps, validationRegister } from './validation/index';
+import { Modal } from '../../components/Modal';
 
 export function Register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [errors, setErrors] = useState({} as ErrorProps);
+  const [modalVisible, setModalVisible] = useState(false);
 
   const navigate = useNavigate();
 
@@ -65,9 +67,14 @@ export function Register() {
         >
           Já sou usuário
         </Button>
-        <Button variant="primary" type="submit">
+        <Button
+          variant="primary"
+          type="submit"
+          onClick={() => setModalVisible(true)}
+        >
           Cadastrar
         </Button>
+        {modalVisible ? <Modal /> : null}
       </div>
     </Styled.Form>
   );

@@ -29,6 +29,7 @@ export const Button = styled.button<ButtonProps>`
     font-weight: 500;
     font-size: 1rem;
     width: 100%;
+    max-height: 2.81rem;
     cursor: pointer;
     transition: all 0.2s;
 
