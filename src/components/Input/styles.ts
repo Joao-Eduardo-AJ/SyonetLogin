@@ -2,9 +2,29 @@ import styled, { css, DefaultTheme } from 'styled-components';
 
 export interface WrapperProps {
   disabled?: boolean;
+  error?: string;
 }
 
 const variantModifier = {
+  error: (theme: DefaultTheme) => css`
+    label {
+      color: ${theme.colors.danger};
+    }
+
+    input {
+      border-color: ${theme.colors.danger};
+      color: ${theme.colors.danger};
+
+      &::placeholder {
+        color: ${theme.colors.danger};
+      }
+    }
+
+    span {
+      color: ${theme.colors.danger};
+    }
+  `,
+
   disabled: (theme: DefaultTheme) => css`
     opacity: 0.6;
 
@@ -19,7 +39,7 @@ const variantModifier = {
 };
 
 export const Wrapper = styled.div<WrapperProps>`
-  ${({ theme, disabled }) => css`
+  ${({ theme, disabled, error }) => css`
     display: flex;
     flex-direction: column;
     gap: ${theme.spaces[2]};
@@ -31,7 +51,7 @@ export const Wrapper = styled.div<WrapperProps>`
     }
 
     input {
-      background-color: ${theme.colors.background};
+      background-color: ${theme.colors.gray100};
       color: ${theme.colors.gray600};
       border: 1px solid ${theme.colors.gray300};
       border-radius: 8px;
@@ -47,5 +67,6 @@ export const Wrapper = styled.div<WrapperProps>`
     }
 
     ${disabled && variantModifier.disabled(theme)}
+    ${error && variantModifier.error(theme)}
   `}
 `;

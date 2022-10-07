@@ -4,7 +4,7 @@ import { Login } from '../pages/Login';
 
 const routeList: RouteProps[] = [
   {
-    path: '/register',
+    path: '/',
     element: <Register />,
   },
   {

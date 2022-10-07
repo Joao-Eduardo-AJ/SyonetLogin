@@ -11,7 +11,7 @@ export default {
     gray200: '#EEEEEE',
     gray100: '#FFFFFF',
 
-    background: '#EAEAF0',
+    background: '#C3C3C3',
 
     danger: '#CE1E36',
     success: '#6DC122',

@@ -6,6 +6,7 @@ export const Form = styled.form`
 
     h1 {
       margin-bottom: ${theme.spaces[10]};
+      font-size: 1.5rem;
     }
 
     .inputContainer {

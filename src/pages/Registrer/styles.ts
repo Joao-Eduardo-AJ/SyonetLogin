@@ -6,6 +6,7 @@ export const Form = styled.form`
 
     h1 {
       margin-bottom: ${theme.spaces[10]};
+      font-size: 1.5rem;
     }
 
     .inputContainer {
@@ -16,8 +17,10 @@ export const Form = styled.form`
 
     .buttonContainer {
       display: flex;
+      align-content: space-between;
       flex-direction: row;
       margin-top: 4.5rem;
+      gap: 1rem;
     }
   `}
 `;

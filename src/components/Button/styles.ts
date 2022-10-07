@@ -7,13 +7,16 @@ const variantModifier = {
     color: ${theme.colors.gray100};
     :hover {
       background-color: ${theme.colors.functionLight};
+      box-shadow: 0px 0px 10px ${theme.colors.gray400};
     }
   `,
   outline: (theme: DefaultTheme) => css`
     background: ${theme.colors.gray100};
     color: ${theme.colors.function};
     :hover {
-      background-color: ${theme.colors.gray200};
+      background-color: ${theme.colors.functionLight};
+      color: ${theme.colors.gray100};
+      box-shadow: 0px 0px 10px ${theme.colors.gray400};
     }
   `,
 };
