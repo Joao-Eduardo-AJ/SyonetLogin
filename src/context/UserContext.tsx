@@ -1,14 +1,7 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext } from 'react';
 import api from '../api/api';
 import { randomId } from '../utils/randomId';
-
 export interface UserContextProps {
-  email: string;
-  setEmail: React.Dispatch<React.SetStateAction<string>>;
-  password: string;
-  setPassword: React.Dispatch<React.SetStateAction<string>>;
-  confirmPassword: string;
-  setConfirmPassword: React.Dispatch<React.SetStateAction<string>>;
   handleCreateUser: (
     email: string,
     password: string,
@@ -23,10 +16,6 @@ export interface UserProviderProps {
 const UserContext = createContext({} as UserContextProps);
 
 export function UserProvider({ children }: UserProviderProps) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-
   function handleCreateUser(
     email: string,
     password: string,
@@ -44,17 +33,7 @@ export function UserProvider({ children }: UserProviderProps) {
   }
 
   return (
-    <UserContext.Provider
-      value={{
-        confirmPassword,
-        email,
-        password,
-        setConfirmPassword,
-        setEmail,
-        setPassword,
-        handleCreateUser,
-      }}
-    >
+    <UserContext.Provider value={{ handleCreateUser }}>
       {children}
     </UserContext.Provider>
   );

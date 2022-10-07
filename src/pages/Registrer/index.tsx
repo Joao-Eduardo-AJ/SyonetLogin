@@ -8,18 +8,13 @@ import { Modal } from '../../components/Modal/Index';
 import { useUserData } from '../../context/UserContext';
 
 export function Register() {
-  const {
-    confirmPassword,
-    email,
-    password,
-    setConfirmPassword,
-    setEmail,
-    setPassword,
-    handleCreateUser,
-  } = useUserData();
-
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [errors, setErrors] = useState({} as ErrorProps);
   const [modalVisible, setModalVisible] = useState(false);
+
+  const { handleCreateUser } = useUserData();
 
   const navigate = useNavigate();
 
