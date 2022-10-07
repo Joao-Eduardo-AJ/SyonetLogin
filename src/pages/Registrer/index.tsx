@@ -5,11 +5,19 @@ import { Input } from '../../components/Input/Index';
 import * as Styled from './styles';
 import { ErrorProps, validationRegister } from './validation/index';
 import { Modal } from '../../components/Modal/Index';
+import { useUserData } from '../../context/UserContext';
 
 export function Register() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const {
+    confirmPassword,
+    email,
+    password,
+    setConfirmPassword,
+    setEmail,
+    setPassword,
+    handleCreateUser,
+  } = useUserData();
+
   const [errors, setErrors] = useState({} as ErrorProps);
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -25,10 +33,11 @@ export function Register() {
     };
 
     const errors = await validationRegister(body);
+
     if (errors) {
       return setErrors(errors);
     }
-    setModalVisible(true);
+    handleCreateUser(email, password, () => setModalVisible(true));
   }
 
   return (

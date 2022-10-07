@@ -4,14 +4,17 @@ import GlobalStyle from './styles/global';
 import { BrowserRouter } from 'react-router-dom';
 import { Router } from './routes';
 import { Card } from './layout/Card/index';
+import { UserProvider } from './context/UserContext';
 
 function App() {
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>
-        <Card>
-          <Router />
-        </Card>
+        <UserProvider>
+          <Card>
+            <Router />
+          </Card>
+        </UserProvider>
         <GlobalStyle />
       </ThemeProvider>
     </BrowserRouter>
