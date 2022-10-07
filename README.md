@@ -1,4 +1,4 @@
-## Projeto de Login / Cadastro da empresa CRM Syonet. 
+# Projeto de Login / Cadastro da empresa CRM Syonet. 
 
 <img src="https://octodex.github.com/images/baracktocat.jpg" width="15%" align="right">
 
@@ -6,12 +6,34 @@ Desta vez, após receber a proposta do projeto, criei a página de cadastro, log
 
 ## Como utilizar a aplicação:
 
-# no terminal, faça:
+## Para instalar todas as dependências do projeto:
+```bash
+npm install
+```
+ou
+```bash
+yarn install
+```
 
-1º "npm install" ou "yarn install", para instalar as dependências do projeto; <br>
-2º "npm run dev" ou "yarn dev", para ver a aplicação no navegador por meio de uma porta; <br>
-3º "npm run server" ou "yarn server", para rodar o server.<br>
+## Para ver a aplicação no navegador por meio de uma porta:
+```bash
+npm run dev
+```
+ou
+```bash
+yarn dev
+```
 
-<br>
-[@LinkedIn](https://www.linkedin.com/in/joao-eduardo-2000s/) <br>
+## Para ver a aplicação no navegador por meio de uma porta:
+```bash
+npm run server
+```
+ou
+```bash
+yarn server
+```
+
+
+### Obrigado pela visita!
+[@LinkedIn](https://www.linkedin.com/in/joao-eduardo-2000s/) <br/>
 [@WhatsApp](https://wa.me/qr/MV4NC2VANIZRC1)
