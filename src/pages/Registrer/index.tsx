@@ -55,6 +55,7 @@ export function Register() {
         <Input
           label="Senha:"
           name="password"
+          type="password"
           value={password}
           onChange={event => setPassword(event.target.value)}
           error={errors.password}
@@ -63,6 +64,7 @@ export function Register() {
         <Input
           label="Confirme sua Senha:"
           name="confirmPassword"
+          type="password"
           value={confirmPassword}
           onChange={event => setConfirmPassword(event.target.value)}
           error={errors.confirmPassword}

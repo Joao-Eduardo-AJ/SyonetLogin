@@ -1,9 +1,3 @@
 {
-  "users": [
-    {
-      "email": "joaoeduaj@gmail.com",
-      "password": "$2a$10$SGm8hrg0nMnXFmEfjWi9Kew6YtyF46/PaRud8G4QLYPjbXVXH11zK",
-      "id": 1
-    }
-  ]
+  "users": []
 }

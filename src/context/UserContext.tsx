@@ -1,11 +1,6 @@
 import React, { createContext, useContext, useState } from 'react';
 import api from '../api/api';
-
-export interface UserDataProps {
-  id: string;
-  email: string;
-  password: string;
-}
+import { randomId } from '../utils/randomId';
 
 export interface UserContextProps {
   email: string;
@@ -14,7 +9,6 @@ export interface UserContextProps {
   setPassword: React.Dispatch<React.SetStateAction<string>>;
   confirmPassword: string;
   setConfirmPassword: React.Dispatch<React.SetStateAction<string>>;
-  data: UserDataProps[];
   handleCreateUser: (
     email: string,
     password: string,
@@ -32,7 +26,6 @@ export function UserProvider({ children }: UserProviderProps) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [data, setData] = useState<UserDataProps[]>([]);
 
   function handleCreateUser(
     email: string,
@@ -40,13 +33,12 @@ export function UserProvider({ children }: UserProviderProps) {
     callback: () => void,
   ) {
     const body = {
-      id: data.length + 1,
+      id: randomId(),
       email,
       password,
     };
 
-    api.post('/register', body).then(response => {
-      setData(response.data);
+    api.post('/register', body).then(() => {
       callback();
     });
   }
@@ -60,7 +52,6 @@ export function UserProvider({ children }: UserProviderProps) {
         setConfirmPassword,
         setEmail,
         setPassword,
-        data,
         handleCreateUser,
       }}
     >

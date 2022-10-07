@@ -12,7 +12,7 @@ export const Item = styled.div`
     border-radius: 0.5rem;
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.08);
 
-    h2 {
+    span {
       font-size: 1.125rem;
     }
   `}
