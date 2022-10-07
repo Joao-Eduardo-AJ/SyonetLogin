@@ -1,4 +1,5 @@
 import { FormEvent, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '../../components/Button/Index';
 import { Input } from '../../components/Input/Index';
 import * as Styled from './styles';
@@ -9,6 +10,8 @@ export function Register() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [errors, setErrors] = useState({} as ErrorProps);
+
+  const navigate = useNavigate();
 
   async function handleSubmit(event: FormEvent) {
     event.preventDefault();
@@ -55,7 +58,11 @@ export function Register() {
         />
       </div>
       <div className="buttonContainer">
-        <Button variant="outline" type="button">
+        <Button
+          variant="outline"
+          type="button"
+          onClick={() => navigate('/login')}
+        >
           Já sou usuário
         </Button>
         <Button variant="primary" type="submit">
