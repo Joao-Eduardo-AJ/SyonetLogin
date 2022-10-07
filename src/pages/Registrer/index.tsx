@@ -28,6 +28,7 @@ export function Register() {
     if (errors) {
       return setErrors(errors);
     }
+    setModalVisible(true);
   }
 
   return (
@@ -67,14 +68,10 @@ export function Register() {
         >
           Já sou usuário
         </Button>
-        <Button
-          variant="primary"
-          type="submit"
-          onClick={() => setModalVisible(true)}
-        >
+        <Button variant="primary" type="submit">
           Cadastrar
         </Button>
-        {modalVisible ? <Modal /> : null}
+        {modalVisible && <Modal />}
       </div>
     </Styled.Form>
   );

@@ -2,11 +2,12 @@ import * as Styled from './styles';
 import imageSource from '../../assets/svg/check.svg';
 import { Button } from '../Button/Index';
 import { useNavigate } from 'react-router-dom';
+import { createPortal } from 'react-dom';
 
 export function Modal() {
   const navigate = useNavigate();
 
-  return (
+  return createPortal(
     <Styled.Wrapper>
       <Styled.Modal>
         <header>
@@ -17,6 +18,7 @@ export function Modal() {
           Fechar
         </Button>
       </Styled.Modal>
-    </Styled.Wrapper>
+    </Styled.Wrapper>,
+    document.getElementById('modal')!,
   );
 }
